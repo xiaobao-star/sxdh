@@ -1,4 +1,4 @@
-package com.tydh.sxdh.JUtils.encrypt;
+package com.tydh.sxdh;
 
 import java.io.UnsupportedEncodingException;
 
@@ -9,7 +9,7 @@ import java.io.UnsupportedEncodingException;
  * @date:2016年5月20日 下午5:05:30
  *
  */
-public class Base64Utils {
+class Base64Utils {
 
 	private static char[] base64EncodeChars = new char[] { 'A', 'B', 'C', 'D',
 			'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
@@ -37,7 +37,7 @@ public class Base64Utils {
 	 * @param data
 	 * @return
 	 */
-	public static String encrypt(byte[] data) {
+	protected static String encrypt(byte[] data) {
 		StringBuffer sb = new StringBuffer();
 		int len = data.length;
 		int i = 0;

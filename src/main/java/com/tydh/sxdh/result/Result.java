@@ -3,6 +3,7 @@ package com.tydh.sxdh.result;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.xmlbeans.impl.xb.ltgfmt.Code;
 
 import java.io.Serializable;
 
@@ -19,14 +20,6 @@ public class Result implements Serializable {
     private String msg;
     // 返回数据
     private Object data;
-
-    private Result(Boolean flag, Integer code, String msg, Object data)
-    {
-        this.flag = flag;
-        this.code = code;
-        this.msg = msg;
-        this.data = data;
-    }
 
 
     public Result(String msg, Object data) {
@@ -72,7 +65,7 @@ public class Result implements Serializable {
     }
 
     public static Result error(Exception exception) {
-        return new Result( "返回失败",exception);
+        return new Result(false,400,"返回失败",exception);
     }
 
 }

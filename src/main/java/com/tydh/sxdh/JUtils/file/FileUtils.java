@@ -9,8 +9,8 @@ import java.io.OutputStream;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 
-import com.JUtils.date.DateUtils;
-import com.JUtils.math.RandomUtils;
+import com.tydh.sxdh.JUtils.date.DateUtils;
+import com.tydh.sxdh.JUtils.math.RandomUtils;
 
 /**
  * @desc:文件工具类

@@ -63,7 +63,6 @@ public class EncryptAndDecryptUtils {
 			result =  Base64Utils.encrypt(value.getBytes());
 		}
 		return result;
-		
 	}
 	
 	/**
