@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>装卸车快扫软件平台</title>
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+	<link rel="icon" href="img/icon.ico" type="image/x-icon"/>
+
+	<!-- Fonts and icons -->
+	<script src="js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Open+Sans:300,400,600,700"]},
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"], urls: ['css/fonts.css']},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+		
+		   
+	</script>
+	
+	<style>
+	</style>
+
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/azzara.min.css">
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+	<div class="wrapper">
+		
+		<main-header class="main-header" id="main-header"></main-header>
+		
+		<sidebar class="sidebar" id="sidebar"></sidebar>
+		
+		<div class="main-panel">
+			<div class="content">
+				<div class="page-inner">
+					<div class="page-header">
+						<ul class="breadcrumbs">
+							<li class="nav-home">
+								<a href="#">
+									<i class="flaticon-home"></i>
+								</a>
+							</li>
+							<li class="separator">
+								<i class="flaticon-right-arrow"></i>
+							</li>
+							<li class="nav-item">
+								<a href="index.html">系统管理</a>
+							</li>
+							<li class="separator">
+								<i class="flaticon-right-arrow"></i>
+							</li>
+							<li class="nav-item">
+								<a href="organization.html">机构管理</a>
+							</li>
+						</ul>
+					</div>
+					<div class="row">
+
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<div class="d-flex align-items-center">
+										<button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#addRowModal">
+											<i class="fa fa-plus"></i>新增
+										</button>
+									</div>
+								</div>
+								<div class="card-body">
+									<!-- Modal -->
+									<div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+										
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header no-bd">
+													<h5 class="modal-title">
+														<span class="fw-mediumbold">
+														新增</span> 
+													</h5>
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="modal-body">
+													<form id="modal_data_form">
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="form-group form-group-default">
+																	<label>机构代码</label>
+																	<input  type="text" name="fFullname" class="form-control" >
+																</div>
+															</div>
+															<div class="col-sm-12">
+																<div class="form-group form-group-default">
+																	<label>机构名称</label>
+																	<input  type="text" name="fOrganizeName" class="form-control" >
+																</div>
+															</div>
+															<div class="col-sm-12">
+																<div class="form-group form-group-default">
+																	<label>机构属性</label>
+																	<input  type="text" name="fCategoryid" class="form-control" >
+																</div>
+															</div>
+																<div class="col-sm-12">
+																<div class="form-group form-group-default">
+																	<label>区域代码</label>
+																	<input  type="number" name="fAreaid" class="form-control" >
+																</div>
+															</div>
+															<div class="col-sm-12">
+																<div class="form-group form-group-default">
+																	<label>地址</label>
+																	<input  type="text" name="fAdd" class="form-control" >
+																</div>
+															</div>
+															<div class="col-sm-12">
+																<div class="form-group form-group-default">
+																	<label>上级机构名称</label>
+																	<input  type="text" name="fParentid" class="form-control" >
+																</div>
+															</div>
+															<div class="col-md-6 pr-0">
+																<div class="form-group form-group-default">
+																	<label>机构负责人</label>
+																	<input id="addPosition" name="fManagername" type="text" class="form-control">
+																</div>
+															</div>
+															<div class="col-md-6">
+																<div class="form-group form-group-default">
+																	<label>电话</label>
+																	<input id="addOffice" name="fTele" type="number" class="form-control" >
+																</div>
+															</div>
+														</div>
+													</form>
+												</div>
+												<div class="modal-footer no-bd">
+													<button type="button" id="addRowButton" class="btn btn-primary">增加</button>
+													<button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- end Modal add-->
+									
+									<!-- modal update -->
+									<div class="modal fade" id="addRowModal1" tabindex="-1" role="dialog" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header no-bd">
+													<h5 class="modal-title">
+														<span class="fw-mediumbold">
+														修改</span> 
+													</h5>
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="modal-body">
+													<form id="modal_data_form_update">
+														<input type="hidden" id="update_id" name="fId"/>
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="form-group form-group-default">
+																	<label>机构代码</label>
+																	<input  type="text" name="fFullname" class="form-control" >
+																</div>
+															</div>
+															<div class="col-sm-12">
+																<div class="form-group form-group-default">
+																	<label>机构名称</label>
+																	<input  type="text" name="fOrganizeName" class="form-control" >
+																</div>
+															</div>
+															<div class="col-sm-12">
+																<div class="form-group form-group-default">
+																	<label>机构属性</label>
+																	<input  type="text" name="fCategoryid" class="form-control" >
+																</div>
+															</div>
+																<div class="col-sm-12">
+																<div class="form-group form-group-default">
+																	<label>区域代码</label>
+																	<input  type="number" name="fAreaid" class="form-control" >
+																</div>
+															</div>
+															<div class="col-sm-12">
+																<div class="form-group form-group-default">
+																	<label>地址</label>
+																	<input  type="text" name="fAdd" class="form-control" >
+																</div>
+															</div>
+															<div class="col-sm-12">
+																<div class="form-group form-group-default">
+																	<label>上级机构名称</label>
+																	<input  type="text" name="fParentid" class="form-control" >
+																</div>
+															</div>
+															<div class="col-md-6 pr-0">
+																<div class="form-group form-group-default">
+																	<label>机构负责人</label>
+																	<input id="addPosition" name="fManagername" type="text" class="form-control">
+																</div>
+															</div>
+															<div class="col-md-6">
+																<div class="form-group form-group-default">
+																	<label>电话</label>
+																	<input id="addOffice" name="fTele" type="number" class="form-control" >
+																</div>
+															</div>
+														</div>
+													</form>
+												</div>
+												<div class="modal-footer no-bd">
+													<button type="button" id="updateRowButton" class="btn btn-primary">修改</button>
+													<button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- end modal update -->
+									<div class="table-responsive">
+										<table id="add-row" class="display table table-striped table-hover" >
+											<thead>
+												<tr>
+													<th>机构代码</th>
+													<th>机构名称</th>
+													<th>机构属性</th>
+													<th>区域代码</th>
+													<th>地址</th>
+													<th>上级机构名称</th>
+													<th>机构负责人</th>
+													<th>电话</th>
+													<th style="width: 10%">操作</th>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+	<!--   Core JS Files   -->
+	<script src="js/core/jquery.3.2.1.min.js"></script>
+	<script src="js/core/popper.min.js"></script>
+	<script src="js/core/bootstrap.min.js"></script>
+	<!-- jQuery UI -->
+	<script src="js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+	<script src="js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+	<!-- Bootstrap Toggle -->
+	<script src="js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+	<!-- jQuery Scrollbar -->
+	<script src="js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+	<!-- Datatables -->
+	<script src="js/plugin/datatables/datatables.min.js"></script>
+	<!-- Azzara JS -->
+	<script src="js/ready.min.js"></script>
+	<!-- Azzara DEMO methods, don't include it in your project! -->
+	<script src="js/setting-demo.js"></script>
+	<script src="js/projecturl.js"></script>
+	<script >
+		
+		//加载右边框以及右上角的主体静态页面
+		function ajaxLoadSidebarMainheader()
+		{
+			$.ajax({type:"get",url:"main-header.html",async:true,success:function(data){ $("#main-header").html(data);}});
+			$.ajax({type:"get",url:"sidebar.html",async:true,success:function(data){$("#sidebar").html(data);}});
+		}
+		
+		//修改表单回显
+		function modal_update(id)
+		{
+			$("#update_id").val(id);
+			$.post(`${url}/sys-organize/selectbyid`, {"id":id}, function(result)
+			{
+				$("#addRowModal1 input[name='fFullname']").val(result.data.ffullname);
+				$("#addRowModal1 input[name='fOrganizeName']").val(result.data.forganizeName);
+				$("#addRowModal1 input[name='fCategoryid']").val(result.data.fcategoryid);
+				$("#addRowModal1 input[name='fAreaid']").val(result.data.fareaid);
+				$("#addRowModal1 input[name='fAdd']").val(result.data.fadd);
+				$("#addRowModal1 input[name='fParentid']").val(result.data.fparentid);
+				$("#addRowModal1 input[name='fManagername']").val(result.data.fmanagername);
+				$("#addRowModal1 input[name='fTele']").val(result.data.ftele);
+			});
+		}
+		
+		//根据id删除表单
+		function modal_deletebyid(id)
+		{
+			$.post(`${url}/sys-organize/deletebyid`, {"id":id}, function(result)
+			{
+				window.location.reload();
+			});
+		}
+		
+		//datatable表格渲染
+		function finddatabydatatable()
+		{
+			var tabledatas = $('#add-row').DataTable
+			({
+				"ajax": `${url}/sys-organize/selectAll`,
+				"columns":
+				 [
+				    { "data": "ffullname" },
+				    { "data": "forganizeName" },
+				    { "data": "fcategoryid" },
+				    { "data": "fareaid" },
+				    { "data": "fadd" },
+				    { "data": "fparentid" },
+					{ "data": "fmanagername" },
+					{ "data": "ftele" },
+					{
+						"data": null,
+						"defaultContent": 
+							`<div class="form-button-action">
+								<button type='button'  data-toggle='modal' data-target='#addRowModal1' title='修改' class='btn btn-link btn-primary btn-lg btn-modal-update'>
+									<i class="fa fa-edit"></i>
+								</button>
+								<button type='button' title='删除'  class='btn btn-link btn-danger btn-modal-delete'>
+									<i class='fa fa-times'></i>
+								</button>
+							</div>`
+					}
+				],
+				 "language":{url: './js/common/language.json'},
+			});
+			
+			//点击列修改按钮
+			$('#add-row tbody').on( 'click', 'tr td div button.btn-modal-update', function () 
+			{
+				var tr = $(this).closest('tr');
+				modal_update(tabledatas.row(tr).data().fid)
+			});
+			
+			//点击列删除按钮
+			$('#add-row tbody').on( 'click', 'tr td div button.btn-modal-delete', function ()
+			{
+				var tr = $(this).closest('tr');
+				modal_deletebyid(tabledatas.row(tr).data().fid);
+			});
+		}
+		
+		
+		$(document).ready(function() {
+			//加载右边框以及右上角的主体静态页面
+			ajaxLoadSidebarMainheader();
+		
+			//利用datatable渲染表格
+			finddatabydatatable();
+			
+
+			//增加按钮
+			$('#addRowButton').click(function()
+			{
+				$.post(`${url}/sys-organize/add`, $("#modal_data_form").serialize(), function(result)
+				{
+					console.info(result);
+				});
+				$('#addRowModal').modal('hide');
+				window.location.reload();
+			});
+			
+			//修改表单确认按钮
+			$("#updateRowButton").click(function()
+			{
+				$.post(`${url}/sys-organize/update`, $("#modal_data_form_update").serialize(), function(result)
+				{
+					console.info(result);
+				});
+				$('#addRowModal').modal('hide');
+				window.location.reload();
+			})
+			
+
+		});
+	</script>
+</body>
+</html>

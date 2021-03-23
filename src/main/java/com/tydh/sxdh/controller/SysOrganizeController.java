@@ -1,8 +1,12 @@
 package com.tydh.sxdh.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tydh.sxdh.entity.SysOrganize;
+import com.tydh.sxdh.mapper.SysOrganizeMapper;
 import com.tydh.sxdh.result.Result;
 import com.tydh.sxdh.service.SysOrganizeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +30,9 @@ public class SysOrganizeController {
 
     @Autowired
     private SysOrganizeService sysOrganizeService;
+
+    @Autowired
+    private SysOrganizeMapper sysOrganizeMapper;
 
     @RequestMapping("/add")
     public Result addOrgnize(SysOrganize sysOrganize)
@@ -79,13 +86,26 @@ public class SysOrganizeController {
         }
     }
 
-    @RequestMapping("deletebyid")
+    @RequestMapping("/deletebyid")
     public Result deleteOrgnizeById(@RequestParam("id") String fid)
     {
         try
         {
             sysOrganizeService.removeById(fid);
             return Result.success();
+        }catch (Exception e)
+        {
+            return Result.error(e);
+        }
+    }
+
+    //分页查询
+    @RequestMapping("/findsysorgpage")
+    public Result selectUserPage(Integer current, Integer size)
+    {
+        try
+        {
+            return Result.success(sysOrganizeMapper.selectPageVo(new Page<>(current,size), null));
         }catch (Exception e)
         {
             return Result.error(e);

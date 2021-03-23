@@ -1,0 +1,12 @@
+{
+	"search":         "关键字查找:",
+	"lengthMenu": "展示 _MENU_ 条",
+	"info": "第_START_页_END_条共_TOTAL_条",
+	"paginate":
+	{
+		"first":      "第一页",
+		"previous":   "前一页",
+		"next":       "后一页",
+		"last":       "最后一页"
+	}
+}

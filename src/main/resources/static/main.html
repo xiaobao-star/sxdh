@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>装卸车快扫软件平台</title>
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+	<link rel="icon" href="img/icon.ico" type="image/x-icon"/>
+
+	<!-- Fonts and icons -->
+	<script src="js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Open+Sans:300,400,600,700"]},
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"], urls: ['css/fonts.css']},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script>
+
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/azzara.min.css">
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+	<div class="wrapper">
+		<!--
+			Tip 1: You can change the background color of the main header using: data-background-color="blue | purple | light-blue | green | orange | red"
+		-->
+		<div class="main-header" data-background-color="purple">
+			<!-- Logo Header -->
+			<div class="logo-header">
+				
+				<a href="index.html" class="logo">
+					<p style="font-size:medium;color: white;vertical-align:middle;margin-top: 10px;font-family: '微软雅黑';">装卸车快扫软件平台</p>
+				</a>
+				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon">
+						<i class="fa fa-bars"></i>
+					</span>
+				</button>
+				<button class="topbar-toggler more"><i class="fa fa-ellipsis-v"></i></button>
+				<div class="navbar-minimize">
+					<button class="btn btn-minimize btn-rounded">
+						<i class="fa fa-bars"></i>
+					</button>
+				</div>
+			</div>
+			<!-- End Logo Header -->
+
+			<!-- Navbar Header -->
+			<nav class="navbar navbar-header navbar-expand-lg">
+				
+				<div class="container-fluid">
+				
+					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+						<li class="nav-item dropdown hidden-caret">
+							<a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="fa fa-bell"></i>
+								<span class="notification">1</span>
+							</a>
+							<ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
+								<li>
+									<div class="dropdown-title">您有1条新消息，请注意查看</div>
+								</li>
+								<li>
+									<div class="notif-scroll scrollbar-outer">
+										<div class="notif-center">
+											
+											<a href="#">
+												<div class="notif-icon notif-danger"> <i class="fa fa-heart"></i> </div>
+												<div class="notif-content">
+													<span class="block">
+														2020-06-28日中午13：00-14：00，装卸车快扫软件平台升级！
+													</span>
+													<span class="time">17 minutes ago</span> 
+												</div>
+											</a>
+										</div>
+									</div>
+								</li>
+							
+							</ul>
+						</li>
+						<li class="nav-item dropdown hidden-caret">
+							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+								<div class="avatar-sm">
+									<img src="img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+								</div>
+							</a>
+							<ul class="dropdown-menu dropdown-user animated fadeIn">
+								<li>
+									<div class="user-box">
+										<div class="avatar-lg"><img src="img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
+										<div class="u-text">
+											<h4>系统管理员</h4>
+											
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#">机构名称：山西省装卸车快扫平台</a>
+									<a class="dropdown-item" href="#">车间名称：包挂车间</a>
+									<a class="dropdown-item" href="#">角色：系统管理员</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#">修改密码</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="login.html">退出</a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+				</div>
+			</nav>
+			<!-- End Navbar -->
+		</div>
+
+		<!-- Sidebar -->
+		<div class="sidebar">
+			
+			<div class="sidebar-background"></div>
+			<div class="sidebar-wrapper scrollbar-inner">
+				<div class="sidebar-content">
+					<div class="user">
+						<div class="avatar-sm float-left mr-2">
+							<img src="img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+						</div>
+						<div class="info">
+							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+								<span style="color:#177DFF;font-weight: bold;">
+									系统管理员
+								</span>
+							</a>
+						</div>
+					</div>
+					<ul class="nav">
+						<li class="nav-item active">
+							<a href="index.html">
+								<i class="fas fa-home"></i>
+								<p>桌面</p>
+							</a>
+						</li>
+						<li class="nav-item active">
+							<a data-toggle="collapse" href="#base">
+								<i class="fas fa-layer-group"></i>
+								<p>系统管理</p>
+								<span class="caret"></span>
+							</a>
+							<div class="collapse" id="base">
+								<ul class="nav nav-collapse">
+									<li>
+										<a href="organization.html">
+											<span class="sub-item">机构管理</span>
+										</a>
+									</li>
+									<li>
+										<a href="role.html">
+											<span class="sub-item">角色管理</span>
+										</a>
+									</li>
+									<li>
+										<a href="user.html">
+											<span class="sub-item">用户管理</span>
+										</a>
+									</li>
+									<li>
+										<a href="group.html">
+											<span class="sub-item">班组信息</span>
+										</a>
+									</li>
+									<li>
+										<a href="workshop.html">
+											<span class="sub-item">车间信息</span>
+										</a>
+									</li>
+									<li>
+										<a href="postal.html">
+											<span class="sub-item">邮路信息</span>
+										</a>
+									</li>
+									
+									<li>
+										<a href="authority.html">
+											<span class="sub-item">权限设置</span>
+										</a>
+									</li>
+									<li>
+										<a href="notice.html">
+											<span class="sub-item">通知公告</span>
+										</a>
+									</li>
+									<li>
+										<a href="equipment.html">
+											<span class="sub-item">设备档案</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						
+						 <li class="nav-item active">
+							<a href="scan.html">
+								<i class="fas fa-pen-square"></i>
+								<p>扫描勾核</p>
+							</a>
+						</li>
+		
+                        <li class="nav-item active">
+							<a href="allocate.html">
+								<i class="fas fa-map-marker-alt"></i>
+								<p>分拨扫描</p>
+							</a>
+						</li>
+						<li class="nav-item active">
+							<a href="publish.html">
+								<i class="fas fa-paint-roller"></i>
+								<p>配发扫描</p>
+							</a>
+						</li>
+						
+						
+					<li class="nav-item active">
+							<a href="monitoring.html">
+								<i class="fas fa-table"></i>
+								<p>设备监控</p>
+							</a>
+						</li>
+						<li class="nav-item active">
+							<a href="daily.html">
+								<i class="fas fa-desktop"></i>
+								<p>日志管理</p>
+							</a>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- End Sidebar -->
+
+		<div class="main-panel">
+			<div class="content">
+				<div class="page-inner">
+					<div class="row" style="justify-content: space-between;">
+						<div class="col-sm-6 col-md-3">
+							<div class="card card-stats card-round">
+								<div class="card-body ">
+									<div class="row align-items-center">
+										<div class="col-icon">
+											<div class="icon-big text-center icon-primary bubble-shadow-small">
+												<i class="fas fa-users"></i>
+											</div>
+										</div>
+										<div class="col col-stats ml-3 ml-sm-0">
+											<div class="numbers">
+												<p class="card-category">已扫描</p>
+												<h4 class="card-title">118875</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">
+							<div class="card card-stats card-round">
+								<div class="card-body">
+									<div class="row align-items-center">
+										<div class="col-icon">
+											<div class="icon-big text-center icon-info bubble-shadow-small">
+												<i class="far fa-newspaper"></i>
+											</div>
+										</div>
+										<div class="col col-stats ml-3 ml-sm-0">
+											<div class="numbers">
+												<p class="card-category">上传成功</p>
+												<h4 class="card-title">115975</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">
+							<div class="card card-stats card-round">
+								<div class="card-body">
+									<div class="row align-items-center">
+										<div class="col-icon">
+											<div class="icon-big text-center icon-success bubble-shadow-small">
+												<i class="far fa-chart-bar"></i>
+											</div>
+										</div>
+										<div class="col col-stats ml-3 ml-sm-0">
+											<div class="numbers">
+												<p class="card-category">失败数</p>
+												<h4 class="card-title">2900</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-6">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">日报表</div>
+								</div>
+								<div class="card-body">
+									<div class="chart-container">
+										<canvas id="lineChart"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6" style="display: none;">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">Bar Chart</div>
+								</div>
+								<div class="card-body">
+									<div class="chart-container">
+										<canvas id="barChart"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">前一日数据统计</div>
+								</div>
+								<div class="card-body">
+									<div class="chart-container">
+										<canvas id="pieChart" style="width: 50%; height: 50%"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>						
+					</div>
+				</div>
+		
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+<!--   Core JS Files   -->
+<script src="js/core/jquery.3.2.1.min.js"></script>
+<script src="js/core/popper.min.js"></script>
+<script src="js/core/bootstrap.min.js"></script>
+
+<!-- jQuery UI -->
+<script src="js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script src="js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+<!-- jQuery Scrollbar -->
+<script src="js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+<!-- Moment JS -->
+<script src="js/plugin/moment/moment.min.js"></script>
+
+<!-- Chart JS -->
+<script src="js/plugin/chart.js/chart.min.js"></script>
+
+<!-- jQuery Sparkline -->
+<script src="js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+<!-- Chart Circle -->
+<script src="js/plugin/chart-circle/circles.min.js"></script>
+
+<!-- Datatables -->
+<script src="js/plugin/datatables/datatables.min.js"></script>
+
+<!-- Bootstrap Notify -->
+<script src="js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+<!-- Bootstrap Toggle -->
+<script src="js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+
+<!-- jQuery Vector Maps -->
+<script src="js/plugin/jqvmap/jquery.vmap.min.js"></script>
+<script src="js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+
+<!-- Google Maps Plugin -->
+<script src="js/plugin/gmaps/gmaps.js"></script>
+
+<!-- Sweet Alert -->
+<script src="js/plugin/sweetalert/sweetalert.min.js"></script>
+
+<!-- Azzara JS -->
+
+
+	<!-- Bootstrap Toggle -->
+	<script src="js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+	<!-- jQuery Scrollbar -->
+	<script src="js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+<script src="js/ready.min.js"></script>
+
+<!-- Azzara DEMO methods, don't include it in your project! -->
+<script src="js/setting-demo.js"></script>
+<script>
+	
+		$(function()
+		{
+			
+		})
+	
+		var lineChart = document.getElementById('lineChart').getContext('2d'),
+		barChart = document.getElementById('barChart').getContext('2d');
+		
+		var myLineChart = new Chart(lineChart, {
+			type: 'line',
+			data: {
+				labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12","13", "14", "15", "16", "17", "18", "19","20","21", "22", "23", "24", "25", "26",  "27", "28", "29",  "30"],
+				datasets: [{
+					label: "六月",
+					borderColor: "#1d7af3",
+					pointBorderColor: "#FFF",
+					pointBackgroundColor: "#1d7af3",
+					pointBorderWidth: 2,
+					pointHoverRadius: 4,
+					pointHoverBorderWidth: 1,
+					pointRadius: 4,
+					backgroundColor: 'transparent',
+					fill: true,
+					borderWidth: 2,
+					data: [104803, 109202, 118875, 102150, 123439, 119852,121358, 132352, 116132, 135402, 125670, 122397,104203, 109602, 118875, 102150, 123439, 119852,121358, 132352, 116132, 135402, 125670, 122397]
+				}]
+			},
+			options : {
+				responsive: true, 
+				maintainAspectRatio: false,
+				legend: {
+					position: 'bottom',
+					labels : {
+						padding: 10,
+						fontColor: '#1d7af3',
+					}
+				},
+				tooltips: {
+					bodySpacing: 4,
+					mode:"nearest",
+					intersect: 0,
+					position:"nearest",
+					xPadding:10,
+					yPadding:10,
+					caretPadding:10
+				},
+				layout:{
+					padding:{left:15,right:15,top:15,bottom:15}
+				}
+			}
+		});
+
+	
+		var myPieChart = new Chart(pieChart, {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [97.2, 2, 0.5,0.3],
+					backgroundColor :["#1d7af3","#f3545d","#fdaf4b","#52fe4a"],
+					borderWidth: 0
+				}],
+				labels: ['成功数', '失败数', '异常码', '重复码'] 
+			},
+			options : {
+				responsive: true, 
+				maintainAspectRatio: false,
+				legend: {
+					position : 'bottom',
+					labels : {
+						fontColor: 'rgb(154, 154, 154)',
+						fontSize: 11,
+						usePointStyle : true,
+						padding: 20
+					}
+				},
+				pieceLabel: {
+					render: 'percentage',
+					fontColor: 'white',
+					fontSize: 14,
+				},
+				tooltips: false,
+				layout: {
+					padding: {
+						left: 20,
+						right: 20,
+						top: 20,
+						bottom: 20
+					}
+				}
+			}
+		})
+
+	
+	</script>
+
+</body>
+</html>
