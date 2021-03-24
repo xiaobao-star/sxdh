@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -43,7 +44,7 @@ public class SysOrganize implements Serializable {
     private String fEncode;
 
     /**
-     * 机构名称
+     * 机构代码
      */
     @TableField("F_FULLNAME")
     private String fFullname;
@@ -119,6 +120,4 @@ public class SysOrganize implements Serializable {
      */
     @TableField("F_ORGANIZE_NAME")
     private String fOrganizeName;
-
-
 }

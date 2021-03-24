@@ -1,6 +1,7 @@
 package com.tydh.sxdh.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -41,5 +42,6 @@ public class SysWorkshop implements Serializable {
      */
     private String orgnizeId;
 
-
+    @TableField(exist = false)
+    private SysOrganize sysOrganize;
 }
