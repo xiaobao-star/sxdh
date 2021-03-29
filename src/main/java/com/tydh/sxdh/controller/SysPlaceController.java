@@ -1,20 +1,16 @@
 package com.tydh.sxdh.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
-import com.tydh.sxdh.entity.SysOrganize;
+import com.tydh.sxdh.entity.SysPlace;
 import com.tydh.sxdh.entity.SysWorkshop;
-import com.tydh.sxdh.mapper.SysWorkshopMapper;
 import com.tydh.sxdh.result.Result;
 import com.tydh.sxdh.service.SysOrganizeService;
+import com.tydh.sxdh.service.SysPlaceService;
 import com.tydh.sxdh.service.SysWorkshopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * <p>
@@ -22,25 +18,26 @@ import java.util.logging.Logger;
  * </p>
  *
  * @author zzb
- * @since 2021-03-23
+ * @since 2021-03-25
  */
 @RestController
-@RequestMapping("/sys-workshop")
-public class SysWorkshopController {
+@RequestMapping("/sys-place")
+public class SysPlaceController {
+
 
     @Autowired
     private SysWorkshopService sysWorkshopService;
 
     @Autowired
-    private SysOrganizeService sysOrganizeService;
+    private SysPlaceService sysPlaceService;
 
     @PostMapping("/add")
-    public Result addWorkShop(SysWorkshop sysWorkshop)
+    public Result addWorkShop(SysPlace SysPlace)
     {
         try
         {
-            sysWorkshopService.save(sysWorkshop);
-            return Result.success(sysWorkshop);
+            sysPlaceService.save(SysPlace);
+            return Result.success(SysPlace);
         }catch (Exception e)
         {
             return Result.error(e);
@@ -48,11 +45,11 @@ public class SysWorkshopController {
     }
 
     @RequestMapping("/update")
-    public Result updateOrgnize(SysWorkshop sysWorkshop)
+    public Result updateOrgnize(SysPlace SysPlace)
     {
         try
         {
-            boolean b = sysWorkshopService.saveOrUpdate(sysWorkshop);
+            boolean b = sysPlaceService.saveOrUpdate(SysPlace);
             return Result.success(b);
         }catch (Exception e)
         {
@@ -69,13 +66,13 @@ public class SysWorkshopController {
     {
         try
         {
-            List<SysWorkshop> sysWorkshopList = sysWorkshopService.list();
+            List<SysPlace> sysPlaceList = sysPlaceService.list();
 
-            for (SysWorkshop s:sysWorkshopList)
+            for (SysPlace s:sysPlaceList)
             {
-                s.setSysOrganize(sysOrganizeService.getById(s.getOrgnizeId()));
+                s.setSysWorkshop(sysWorkshopService.getById(s.getWorkshopId()));
             }
-            return Result.success(sysWorkshopList);
+            return Result.success(sysPlaceList);
         }catch (Exception e)
         {
             return Result.error(e);
@@ -87,7 +84,7 @@ public class SysWorkshopController {
     {
         try
         {
-            SysWorkshop save = sysWorkshopService.getBaseMapper().selectById(fid);
+            SysPlace save = sysPlaceService.getBaseMapper().selectById(fid);
             return Result.success(save);
         }catch (Exception e)
         {
@@ -100,26 +97,12 @@ public class SysWorkshopController {
     {
         try
         {
-            boolean b = sysWorkshopService.removeById(fid);
+            boolean b = sysPlaceService.removeById(fid);
             return Result.success(b);
         }catch (Exception e)
         {
             return Result.error(e);
         }
     }
-
-    @RequestMapping("findlistsbyorgnizeid")
-    public Result findListsByOrgnizeId(@RequestParam("orgnizeid") String orgnizeid)
-    {
-        try
-        {
-            List<SysWorkshop> list = sysWorkshopService.list(new LambdaQueryWrapper<SysWorkshop>().eq(SysWorkshop::getOrgnizeId,orgnizeid));
-            return Result.success(list);
-        }catch (Exception e)
-        {
-            return Result.error(e);
-        }
-    }
-
 }
 
