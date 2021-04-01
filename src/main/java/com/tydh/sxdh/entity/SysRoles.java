@@ -8,10 +8,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * <p>
- * 
+ * 角色
  * </p>
  *
  * @author zzb
@@ -19,51 +21,49 @@ import java.io.Serializable;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("SYS_USER")
-public class SysUser implements Serializable {
+@TableName("SYS_ROLES")
+public class SysRoles implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 用户表主键
-     */
     @TableId(value = "ID", type = IdType.ASSIGN_UUID)
     private String id;
 
     /**
-     * 操作员代码
+     * 角色名称
      */
-    @TableField("F_USERCODE")
-    private String fUsercode;
+    @TableField("NAME")
+    private String name;
 
     /**
-     * 操作员姓名
+     * 备注
      */
-    @TableField("F_USERNAME")
-    private String fUsername;
+    @TableField("NOTE")
+    private String note;
 
     /**
-     * 密码
+     * 创建时间
      */
-    @TableField("F_PASSWORD")
-    private String fPassword;
+    @TableField("CREATEDTIME")
+    private Date createdtime;
 
     /**
-     * 手机
+     * 修改时间
      */
-    @TableField("F_MOB")
-    private String fMob;
+    @TableField("MODIFIEDTIME")
+    private Date modifiedtime;
 
     /**
-     * 描述
+     * 创建用户
      */
-    @TableField("F_DESCRIPTION")
-    private String fDescription;
+    @TableField("CREATEDUSER")
+    private String createduser;
+
+    /**
+     * 修改用户
+     */
+    @TableField("MODIFIEDUSER")
+    private String modifieduser;
 
 
-    @TableField(exist = false)
-    private SysUserRoles sysUserRoles;
-
-    @TableField(exist = false)
-    private SysRoles sysRoles;
 }
